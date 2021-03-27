@@ -7,7 +7,7 @@ import { CustomersComponent } from './customers/customers.component';
 import { HomeComponent } from './home.component';
 
 const homeRoutes: Routes = [
-  { path: '', component: HomeComponent,
+  { path: '', component: HomeComponent, canLoad: [AuthGuard],
     children: [
       { path: 'customers', component: CustomersComponent, canActivate: [AuthGuard] },
       { path: 'contractors', component: ContractorsComponent, canActivate: [AuthGuard] },

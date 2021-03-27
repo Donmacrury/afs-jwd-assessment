@@ -10,9 +10,10 @@ import * as data from '../../../assets/mock_data_(2).json';
 
 export class CustomersComponent implements OnInit {
 
-  listData = data;
+  listData: any = (data as any).default;
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit(): void {
     console.log(this.listData);
