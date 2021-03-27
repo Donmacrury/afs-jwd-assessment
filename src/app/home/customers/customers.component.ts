@@ -12,8 +12,7 @@ export class CustomersComponent implements OnInit {
 
   listData: any = (data as any).default;
 
-  constructor() {
-   }
+  constructor() { }
 
   ngOnInit(): void {
     console.log(this.listData);
