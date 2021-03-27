@@ -61,7 +61,7 @@ export class CustomersComponent implements OnInit {
         { text: 'True', value: true },
         { text: 'False', value: false }
       ],
-      filterFn: (no_claims: boolean[], item: any) => item.no_claims !== 0
+      filterFn: (no_claims: boolean, item: any) => item.no_claims.toString().indexOf(no_claims) !== -1
     },
     {
       name: 'Gender',
