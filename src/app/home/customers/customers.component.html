@@ -6,11 +6,14 @@
 <nz-table #basicTable [nzData]="listData">
     <thead>
         <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Car</th>
-            <th>No Claims Bonus</th>
-            <th>Gender</th>
+            <th
+              *ngFor="let column of columnsList"
+              [nzSortFn]="column.sortFn"
+              [nzSortDirections]="column.sortDirections"
+              [nzFilters]="column.filteredList"
+            >
+            {{ column.name }}
+            </th>
         </tr>
     </thead>
     <tbody>
