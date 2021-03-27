@@ -1,6 +1,26 @@
 <p>customers details</p>
-<ul>
+<!-- <ul>
     <li *ngFor="let customer of listData">
         {{ customer.first_name }}
     </li>
-</ul>
+</ul> -->
+<nz-table #basicTable [nzData]="listData">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Car</th>
+            <th>No Claims Bonus</th>
+            <th>Gender</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let customer of basicTable.data">
+            <td>{{ customer.first_name }}</td>
+            <td>{{ customer.last_name }}</td>
+            <td>{{ customer.car }}</td>
+            <td>{{ customer.no_claims }}</td>
+            <td>{{ customer.gender }}</td>
+        </tr>
+    </tbody>
+</nz-table>
