@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home.component';
+import { HomeRoutingModule } from './home-routing.module';
 
+import { HomeComponent } from './home.component';
 import { CustomersComponent } from './customers/customers.component';
 import { ContractorsComponent } from './contractors/contractors.component';
 
-import { AppRoutingModule } from '../app-routing.module';
 
 
 
@@ -13,7 +13,7 @@ import { AppRoutingModule } from '../app-routing.module';
   declarations: [HomeComponent, CustomersComponent, ContractorsComponent],
   imports: [
     CommonModule,
-    AppRoutingModule
+    HomeRoutingModule
   ]
 })
 export class HomeModule { }

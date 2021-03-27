@@ -10,13 +10,12 @@ import * as data from '../../../assets/mock_data_(2).json';
 
 export class CustomersComponent implements OnInit {
 
-  listData: data
+  listData = data;
 
   constructor() { }
 
   ngOnInit(): void {
     console.log(this.listData);
-    
   }
 
 }
