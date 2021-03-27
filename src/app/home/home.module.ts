@@ -10,6 +10,7 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
     CommonModule,
     HomeRoutingModule,
     NzButtonModule,
-    NzLayoutModule
+    NzLayoutModule,
+    NzMenuModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }]
 })
