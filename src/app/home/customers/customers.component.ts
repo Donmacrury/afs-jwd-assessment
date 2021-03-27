@@ -6,9 +6,9 @@ interface ColumnItem {
   name: string;
   sortOrder: NzTableSortOrder | null;
   sortFn: NzTableSortFn | null;
-  filteredList: NzTableFilterList;
+  filteredList: NzTableFilterList | null;
   filterFn: NzTableFilterFn | null;
-  filterMultiple: boolean;
+  filterMultiple?: boolean;
   sortDirections: NzTableSortOrder[];
 }
 
@@ -61,7 +61,7 @@ export class CustomersComponent implements OnInit {
         { text: 'True', value: true },
         { text: 'False', value: false }
       ],
-      filterFn: (no_claims: boolean, item: any) => item.no_claims.indexOf(no_claims) !== -1
+      filterFn: (no_claims: boolean[], item: any) => item.no_claims !== 0
     },
     {
       name: 'Gender',
@@ -70,10 +70,11 @@ export class CustomersComponent implements OnInit {
       sortFn: null,
       filteredList: [
         { text: 'Female', value: 'Female'},
-        { text: 'Male', value: 'Male' }
+        { text: 'Male', value: 'Male' },
+        { text: 'Other', value: 'Other' }
       ],
-      filterFn: (gender: string[], item: any) => gender.some(gender => item.gender.indexOf(gender) !== -1),
-      filterMultiple: false
+      filterFn: (gender: string, item: any) => item.gender.indexOf(gender) !== -1,
+      filterMultiple: true
     }
   ]
 
