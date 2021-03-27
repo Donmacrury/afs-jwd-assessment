@@ -3,7 +3,7 @@
         {{ customer.first_name }}
     </li>
 </ul> -->
-<nz-table #basicTable [nzData]="listData">
+<nz-table #filterTable [nzData]="listData" nzTableLayout="fixed">
     <thead>
         <tr>
             <th
@@ -11,13 +11,14 @@
               [nzSortFn]="column.sortFn"
               [nzSortDirections]="column.sortDirections"
               [nzFilters]="column.filteredList"
+              [nzFilterFn]="column.filterFn"
             >
             {{ column.name }}
             </th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let customer of basicTable.data">
+        <tr *ngFor="let customer of filterTable.data">
             <td>{{ customer.first_name }}</td>
             <td>{{ customer.last_name }}</td>
             <td>{{ customer.car }}</td>
