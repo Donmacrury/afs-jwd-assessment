@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { API } from 'aws-amplify';
+import { API, Auth } from 'aws-amplify';
 import * as queries from '../../../graphql/queries';
 import * as mutations from '../../../graphql/mutations';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-// export class Todo {
-//   constructor (
-//     public id: string,
-//     public name: string,
-//     public description: string,
-//   ) { }
-// }
+export class Todo {
+  constructor (
+    public id: string,
+    public name: string,
+    public description: string,
+  ) { }
+}
 
-  const todoDetails = {
-    name: 'Todo 1',
-    description: "fix todo's"
-  };
+  // const todoDetails = {
+  //   name: 'Todo 1',
+  //   description: "fix todo's"
+  // };
 
 @Component({
   selector: 'app-contractors',
@@ -27,17 +28,31 @@ export class ContractorsComponent implements OnInit {
   // description: string;
   // todo = new Todo('', '', '');
 
-  constructor() { }
+  public createForm: FormGroup;
+
+  todos: Array<Todo>;
+
+  constructor(private fb: FormBuilder) { }
   
   async allTodos() {await API.graphql({ query: queries.listTodos })};
 
-  async newTodo() {await API.graphql({ query: mutations.createTodo, variables: {input: todoDetails}})};
+  async newTodo() {await API.graphql({ query: mutations.createTodo, variables: {input: this.createForm.value}})};
 
-  // const newTodo = await API.graphql({ query: mutations.createTodo, variables: {input: todoDetails}});
+  public onCreate(todo: Todo) {
+    this.newTodo().then(event => {
+      this.createForm.reset();
+    })
+  }
 
   ngOnInit() {
-    this.allTodos()
-    console.log(this.allTodos);
+    this.createForm = this.fb.group({
+      'name': ['', Validators.required],
+      'description': ['', Validators.required]
+    })
+    // this.allTodos().then(event => {
+    //   this.todos = event.items;
+    // })
+    console.log(this.todos);
   }
   
 }
