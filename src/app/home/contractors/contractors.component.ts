@@ -16,7 +16,6 @@ export class ContractorsComponent implements OnInit {
     async function allTodos() {
     const todos = await API.graphql({ query: queries.listTodos })
     console.log(todos);
-    
     };
     
   }

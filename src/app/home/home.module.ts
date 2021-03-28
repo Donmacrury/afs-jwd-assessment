@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { HomeRoutingModule } from './home-routing.module';
 
 import { HomeComponent } from './home.component';
@@ -22,7 +23,8 @@ import { NzTableModule} from 'ng-zorro-antd/table';
     NzButtonModule,
     NzLayoutModule,
     NzMenuModule,
-    NzTableModule
+    NzTableModule,
+    FormsModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }]
 })

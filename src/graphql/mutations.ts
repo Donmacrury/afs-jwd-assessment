@@ -2,6 +2,21 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createTodo = /* GraphQL */ `
+  mutation CreateTodo(
+    $input: CreateTodoInput!
+    $condition: ModelTodoContitionInput
+  ) {
+    createTodo(input: $input, condition: $condition) {
+      id
+      name
+      description
+      createdAt
+      updatedAt
+    }
+  }
+`;
+
 export const createUser = /* GraphQL */ `
   mutation CreateUser(
     $input: CreateUserInput!
