@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NzTableFilterFn, NzTableSortFn, NzTableSortOrder, NzTableFilterList } from 'ng-zorro-antd/table';
 import * as data from '../../../assets/mock_data_(2).json';
+import { CustomersService } from '../../services/customers.service';
 
 interface ColumnItem {
   name: string;
@@ -62,6 +63,9 @@ export class CustomersComponent implements OnInit {
         { text: 'False', value: false }
       ],
       filterFn: (no_claims: boolean, item: any) => item.no_claims.toString().indexOf(no_claims) !== -1
+      
+      // TODO: use the CustomersService to format no_claims boolean to string
+      // filterFn: (no_claims: boolean, item: any) => item.no_claims.stringConverter().indexOf(no_claims) !== -1
     },
     {
       name: 'Gender',
