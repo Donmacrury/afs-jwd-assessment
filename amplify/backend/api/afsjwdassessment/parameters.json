@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "afsjwdassessment",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authafsjwdassessment8910768b8910768b",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

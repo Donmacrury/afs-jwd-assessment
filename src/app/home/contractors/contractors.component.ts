@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { API } from 'aws-amplify';
+import * as queries from '../../../graphql/queries';
 
 @Component({
   selector: 'app-contractors',
@@ -9,7 +11,14 @@ export class ContractorsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+
+    async function allTodos() {
+    const todos = await API.graphql({ query: queries.listTodos })
+    console.log(todos);
+    
+    };
+    
   }
 
 }
