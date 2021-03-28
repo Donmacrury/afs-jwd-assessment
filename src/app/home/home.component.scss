@@ -3,9 +3,12 @@
     float: left;
 }
 
-.header-menu {
+nz-header {
     line-height: 64px;
-    background-color: #272626;
+    background: #272626;
+}
+nz-menu-item {
+    background: #272626;
 }
 
 nz-content {
